@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @movies = @list.movies
   end
 
   def new
@@ -28,6 +29,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :id)
+    params.require(:list).permit(:name, :list_id)
   end
 end
