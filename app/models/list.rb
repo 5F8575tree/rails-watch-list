@@ -4,5 +4,5 @@ class List < ApplicationRecord
   has_many :bookmarks, dependent: :destroy # destroy bookmarks
   has_many :movies, through: :bookmarks # don't destroy the movies
 
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
