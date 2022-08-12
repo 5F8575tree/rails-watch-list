@@ -1,7 +1,14 @@
 <div class="container container-center">
-  <h1 style="padding-bottom: 24px;">Your <%= @list.name %> List</h1>
-  <%= link_to "Back to lists", root_path, class: "btn-ghost-red-sm" %>
-  <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn-ghost-red-sm" %>
+  <div class="header">
+    <% if @list.photo.attached? %>
+      <%= cl_image_tag @list.photo.key, height: 80, width: 80, crop: :fill, radius: :max %>
+    <% else %>
+      <%= image_tag "placeholder.png", height: 80, width: 80, crop: :fill, radius: :max %>
+    <% end %>
+    <h1>Your <%= @list.name %> List</h1>
+    <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn-ghost-red-sm" %>
+    <%= link_to "Back to lists", root_path, class: "btn-ghost-red-sm" %>
+  </div>
   <hr>
   <div class="cards-container">
     <div class="cards">
