@@ -1,9 +1,20 @@
-<h1><%= @list.name %></h1>
-<% @movies.each do |movie| %>
-  <%= movie.title %>
-  <%= movie.overview %>
-  <%= movie.rating %>
-  <%= movie.poster_url %>
-<% end %>
-<%= link_to "Back to lists", root_path %>
-<%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+<div class="container container-center">
+  <h1>Your <%= @list.name %> List</h1>
+  <%= link_to "Back to lists", root_path %>
+  <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+  <hr>
+  <div class="row">
+    <% @movies.each do |movie| %>
+      <div class="col">
+        <div class="card bg-dark text-white" style="height: 32rem; width: 24rem;">
+        <%= image_tag movie.poster_url, class: "card-img" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title mt-3"><%= movie.title %></h5>
+            <p class="card-text mt-3"><%= movie.overview %></p>
+            <p class="card-text"><%= movie.rating %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

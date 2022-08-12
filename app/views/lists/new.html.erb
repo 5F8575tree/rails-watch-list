@@ -1,6 +1,8 @@
-<h1>New List</h1>
-<%= simple_form_for @list do |f| %>
-	<%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-	<%= f.submit "Create List", class: "btn btn-primary" %>
-<% end %>
+<div class="container container-center">
+  <h1>New List</h1>
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name, label: 'Give your movie list a name' %>
+    <%= f.input :photo, as: :file, label: 'Add a photo?' %>
+    <%= f.submit "Create List", class: "btn btn-ghost-red mt-2" %>
+  <% end %>
+</div>
