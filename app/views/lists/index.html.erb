@@ -8,35 +8,11 @@
 
 <div class="container container-center">
   <h1><strong>My Watch Lists</strong></h1>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Select a List</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Netflix? Click me.
-            </a>
-            <div class="dropup">
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <% @lists.each do |list| %>
-                  <li>
-                    <%= link_to list.name, list_path(list), class: "dropdown-item" %>
-                    <% if list.photo.attached? %>
-                      <%= cl_image_tag list.photo.key, height: 40, width: 160, crop: :fill %>
-                    <% else %>
-                      <%= image_tag "placeholder.png", height: 40, width: 160, crop: :fill %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <hr>
+  <% @lists.each do |list| %>
+  <div class="card-category mt-2 mb-4 justify-content-between" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://loremflickr.com/1000/200/<%= list.name %>')">
+      <h2 class="m-5"><%= list.name %></h2>
+      <%= link_to "View List", list_path(list), class: "btn btn-ghost m-5" %>
+  </div>
+  <% end %>
 </div>
