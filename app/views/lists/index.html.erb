@@ -23,7 +23,10 @@
             <div class="dropup">
               <ul class="dropdown-menu dropdown-menu-dark">
                 <% @lists.each do |list| %>
-                  <li><%= link_to list.name, list_path(list), class: "dropdown-item" %></li>
+                  <li>
+                    <%= link_to list.name, list_path(list), class: "dropdown-item" %>
+                    <%= cl_image_tag list.photo.key, height: 40, width: 40, crop: :fill %>
+                  </li>
                 <% end %>
               </ul>
             </div>
