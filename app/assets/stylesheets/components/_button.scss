@@ -31,11 +31,12 @@
 .btn-ghost-red-sm {
   color: #F9014F;
   border: 1px solid #F9014F;
-  padding: 16px 48px;
+  padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 1;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ghost-red-sm:hover {
