@@ -25,7 +25,11 @@
                 <% @lists.each do |list| %>
                   <li>
                     <%= link_to list.name, list_path(list), class: "dropdown-item" %>
-                    <%= cl_image_tag list.photo.key, height: 40, width: 40, crop: :fill %>
+                    <% if list.photo.attached? %>
+                      <%= cl_image_tag list.photo.key, height: 40, width: 40, crop: :fill %>
+                    <% else %>
+                      <%= image_tag "placeholder.png", height: 40, width: 40, crop: :fill %>
+                    <% end %>
                   </li>
                 <% end %>
               </ul>
